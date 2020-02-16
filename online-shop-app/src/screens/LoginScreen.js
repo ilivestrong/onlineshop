@@ -13,11 +13,11 @@ const Login = (props) => {
   const handleFormSubmit = () => {
     const matchedList = DummyCredentials.filter(user => user.username === username
       && user.password === password);
- 
+
     if (matchedList.length > 0) {
-      alert("success");
+      props.navigation.replace("ProductList");
     } else {
-      alert("failed");
+      alert("Incorrect credentials, please verify and try again.");
     }
   }
 
@@ -28,17 +28,17 @@ const Login = (props) => {
         <Text style={styles.labelContainer}>Login</Text>
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.inputStyle} value={username} onChangeText={setUsername} autoCapitalize={false} />
+        <TextInput style={styles.inputStyle} value={username} onChangeText={setUsername} autoCapitalize="none" />
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.inputStyle} value={password} onChangeText={setPassword} autoCapitalize={false} />
+        <TextInput style={styles.inputStyle} value={password} onChangeText={setPassword} autoCapitalize="none" />
       </View>
       <View style={styles.submitContainer}>
         <Button
           title="Sign In"
-          color = "gray"
+          color="gray"
           onPress={handleFormSubmit}
-          style = {styles.submitStyle}
+          style={styles.submitStyle}
         />
       </View>
     </View>
