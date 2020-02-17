@@ -1,21 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet, Button, TextInput, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Button, TextInput } from "react-native";
 
 // TODO: to be removed later
 import { DummyCredentials } from "../data/dummyCredentails";
 
-
+import { Storage, Constants } from "../common";
 
 const Login = (props) => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = async () => {
     const matchedList = DummyCredentials.filter(user => user.username === username
       && user.password === password);
 
     if (matchedList.length > 0) {
-      props.navigation.replace("ProductList");
+      await Storage.setItemInStorage(Constants.Keys.username, matchedList[0].username);
+      props.navigation.replace("CustomerFlowStack");
     } else {
       alert("Incorrect credentials, please verify and try again.");
     }
