@@ -10,7 +10,7 @@ const AppNavigator = (props) => {
   return (
     <RootNavigator.Navigator initialRouteName="Home">
       <RootNavigator.Screen name="Home" component={LoginScreen} options = {{title: "Authentication"}} />
-      <RootNavigator.Screen name="CustomerFlowStack" component={CustomerStackNavigator} options = {{title : "Happy Shopping"}} />
+      <RootNavigator.Screen name="CustomerFlowStack" component={CustomerStackNavigator} options = {{title : "Online Shop"}} />
     </RootNavigator.Navigator>
   );
 }
