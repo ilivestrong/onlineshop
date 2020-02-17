@@ -29,10 +29,21 @@ const Login = (props) => {
         <Text style={styles.labelContainer}>Login</Text>
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.inputStyle} value={username} onChangeText={setUsername} autoCapitalize="none" />
+        <TextInput
+          autoCapitalize="none"
+          style={styles.inputStyle}
+          value={username}
+          onChangeText={setUsername}
+        />
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.inputStyle} value={password} onChangeText={setPassword} autoCapitalize="none" />
+        <TextInput 
+        autoCapitalize="none"
+        style={styles.inputStyle} 
+        value={password} 
+        onChangeText={setPassword} 
+        secureTextEntry = {true}
+         />
       </View>
       <View style={styles.submitContainer}>
         <Button
