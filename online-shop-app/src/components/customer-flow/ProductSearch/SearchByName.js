@@ -23,7 +23,7 @@ const SearchByName = (props) => {
       <TextInput
         autoCorrect={false}
         autoCapitalize="none"
-        placeholder="Search by name"
+        placeholder="Enter product name"
         placeholderTextColor="black"
         style={styles.input}
         value={productName}

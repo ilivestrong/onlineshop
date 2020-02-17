@@ -45,9 +45,13 @@ const styles = StyleSheet.create({
     flex: 1
   },
   bodyContainer: {
+    marginLeft: 10,
+    marginRight: 10,
     marginTop: 20,
+    marginBottom: 50,
     flex: 19,
-    borderWidth: 1
+    borderWidth: 1,
+    borderColor: "gray"
   }
 })
 
