@@ -7,7 +7,7 @@ import { CustomerFlowComponents, UserInfo } from "../../components";
 import { Products } from "../../data/dummyProducts";
 
 const ProductListScreen = (props) => {
-  const { Header } = CustomerFlowComponents;
+  const { Header, ProductsContainer } = CustomerFlowComponents;
 
   return (
     <View style={styles.container}>
@@ -18,7 +18,7 @@ const ProductListScreen = (props) => {
       </View>
 
       <View style={styles.bodyContainer}>
-        {/*<Text>ProductListScreen Component will be rendered here!</Text>*/}
+        <ProductsContainer source={Products} />
       </View>
     </View>
   );
