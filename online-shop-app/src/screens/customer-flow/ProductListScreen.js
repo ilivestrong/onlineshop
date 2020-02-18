@@ -1,28 +1,18 @@
 import React from "react";
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import { Button, View, Text, FlatList, StyleSheet } from "react-native";
 
-import { Storage, Constants } from "../../common";
-import { CustomerFlowComponents, Divider } from "../../components";
+import { CustomerFlowComponents, UserInfo } from "../../components";
 
 // TODO: To be removed later
 import { Products } from "../../data/dummyProducts";
 
 const ProductListScreen = (props) => {
-  const [loggedInUser, setLoggedInUser] = React.useState("");
   const { Header } = CustomerFlowComponents;
-
-  React.useEffect(() => {
-    const getUser = async () => {
-      const loggedInUser = await Storage.getItemFromStorage(Constants.Keys.username);
-      setLoggedInUser(loggedInUser);
-    }
-    getUser();
-  }, [loggedInUser]);
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 20, alignSelf: "flex-end" }}> Welcome, <Text style={{ fontWeight: "bold" }}>{loggedInUser}</Text> </Text>
-      
+      <UserInfo />
+
       <View style={styles.headerContainer}>
         <Header />
       </View>
