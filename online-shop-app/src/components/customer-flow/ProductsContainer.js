@@ -1,19 +1,28 @@
 import React from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { ProductTile } from "./Products"
 
 const ProductsContainer = (props) => {
   const { source } = props;
+  const navigation = useNavigation();
+
+  const handleProductTileClick = (productID) => {
+    navigation.navigate("ProductDetail");
+  }
 
   const renderProduct = ({ item }) => {
     return (
-      <ProductTile product={item} />
+      <View style={styles.productTileContainer}>
+        <ProductTile onClick={handleProductTileClick} product={item} />
+      </View>
+
     );
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={source}
         numColumns={2}
@@ -23,5 +32,15 @@ const ProductsContainer = (props) => {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  productTileContainer: {
+    flex: 1,
+    margin: 5,
+  }
+});
 
 export default ProductsContainer;

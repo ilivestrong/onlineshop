@@ -5,17 +5,37 @@ const dummyProductImage = require("../../../../assets/DummyProduct.jpg");
 import { Constants } from "../../../common/Constants"
 
 const ProductTile = (props) => {
-  const { id, name, price, imageURL } = props.product;
-  const handleProductTileClicked = (tileInfo) => {
+  const { product: { id, name, price, imageURL }, onClick } = props;
 
+  const handleProductTileClicked = (tileInfo) => {
+    onClick(tileInfo);
   }
+
+  const colors = [
+    'red',
+    'yellow',
+    'blue',
+    'green',
+    'gray',
+    'purple',
+    'pink',
+    'white'
+  ]
+
+  const color = colors[id];
 
   return (
     <TouchableOpacity
-      style={styles.container}
-      onPress={handleProductTileClicked(id)}
+      style={{
+        flex: 1,
+        // width: 100,
+        height: 300,
+        backgroundColor: color,
+        padding: 20,
+        // justifyContent: 'center',
+      }}
+      onPress={handleProductTileClicked.bind(this, name)}
     >
-
       <Image
         style={styles.image}
         resizeMode="stretch"
@@ -25,27 +45,28 @@ const ProductTile = (props) => {
         <Text style={styles.text}>{name}</Text>
       </View>
       <View>
-        <Text style={styles.text}>{Constants.common.defaultCurrencySymbol} {price}</Text>
+        <Text style={styles.text}>{Constants.common.defaultCurrencySymbol} {price.toFixed(2)}</Text>
       </View>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: 100,
-    height: 100,
-  },
+  // container: {
+  //   flex: 1,
+  //   width: 100,
+  //   height: 400,
+  // },
   image: {
     flex: 1,
-    marginLeft: 10,
-    marginTop: 10,
-    width: 100,
-    height: 150
+    width: "100%",
+    // height: "60%"
   },
   text: {
-    marginLeft: 10,
+    backgroundColor: 'white',
+    marginTop: 5,
+    fontSize: 16,
+    fontWeight: "bold",
   }
 });
 

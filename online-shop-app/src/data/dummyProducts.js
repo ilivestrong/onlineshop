@@ -12,6 +12,7 @@ const Products = [
   new Product(3, 'Smule Backpack', 2500, 0, 5, "", null, 2, true),
   new Product(4, 'Washing Machine', 7800, 0, 3, "", null, 3, true),
   new Product(5, 'Apple MacBook Pro 15"', 84500, 0, 5, "", null, 3, true),
+  new Product(6, 'Samsung LED Monitor 29""', 23490, 0, 5, "", null, 3, true),
 ]
 
 export { Products };
