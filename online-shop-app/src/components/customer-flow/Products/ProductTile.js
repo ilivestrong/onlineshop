@@ -5,6 +5,7 @@ const dummyProductImage = require("../../../../assets/DummyProduct.jpg");
 import { Constants } from "../../../common/Constants"
 
 const ProductTile = (props) => {
+  
   const { product: { id, name, price, imageURL }, onClick } = props;
 
   const handleProductTileClicked = (tileInfo) => {
@@ -45,7 +46,7 @@ const ProductTile = (props) => {
         <Text style={styles.text}>{name}</Text>
       </View>
       <View>
-        <Text style={styles.text}>{Constants.common.defaultCurrencySymbol} {price.toFixed(2)}</Text>
+        <Text style={styles.text}>{Constants.common.defaultCurrencySymbol} {price}</Text>
       </View>
     </TouchableOpacity>
   );

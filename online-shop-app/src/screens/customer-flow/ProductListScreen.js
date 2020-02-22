@@ -5,10 +5,10 @@ import { CustomerFlowComponents, UserInfo } from "../../components";
 
 // TODO: To be removed later
 import { Products } from "../../data/dummyProducts";
+import { ProductDetailContainer } from "../../components/customer-flow";
 
 const ProductListScreen = (props) => {
   const { Header, ProductsContainer } = CustomerFlowComponents;
-
   return (
     <View style={styles.container}>
       <UserInfo />
