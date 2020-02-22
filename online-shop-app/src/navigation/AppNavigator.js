@@ -8,9 +8,9 @@ const AppNavigator = (props) => {
   
   const RootNavigator = createStackNavigator();
   return (
-    <RootNavigator.Navigator initialRouteName="Home">
+    <RootNavigator.Navigator initialRouteName="Home" headerMode = "none">
       <RootNavigator.Screen name="Home" component={LoginScreen} options = {{title: "Authentication"}} />
-      <RootNavigator.Screen name="CustomerFlowStack" component={CustomerStackNavigator} options = {{title : "Online Shop"}} />
+      <RootNavigator.Screen name="CustomerFlowStack" component={CustomerStackNavigator} />
     </RootNavigator.Navigator>
   );
 }

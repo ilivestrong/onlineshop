@@ -6,9 +6,13 @@ const CustomerNavigator = (props) => {
   const CustomerStackNavigator = createStackNavigator();
 
   return (
-    <CustomerStackNavigator.Navigator screenOptions={{ headerShown: false }}>
-      <CustomerStackNavigator.Screen name="ProductList" component={ProductListScreen} />
-      <CustomerStackNavigator.Screen name="ProductDetail" component={ProductDetailScreen} />
+    <CustomerStackNavigator.Navigator screenOptions={{ headerShown: true }}>
+      <CustomerStackNavigator.Screen name="ProductList" component={ProductListScreen}
+        options = {{headerTitle: "Product List"}} 
+      />
+      <CustomerStackNavigator.Screen name="ProductDetail" component={ProductDetailScreen}
+        options={{ headerTitle: "Product Details" }}
+      />
     </CustomerStackNavigator.Navigator>
   );
 }
