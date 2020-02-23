@@ -6,12 +6,14 @@ import { CustomerFlowComponents, UserInfo } from "../../components";
 const ProductDetailScreen = (props) => {
   const { ProductDetailContainer } = CustomerFlowComponents;
 
+  console.log(props);
+
   return (
     <View style={styles.container}>
       <UserInfo />
 
       <View style={styles.bodyContainer}>
-        <ProductDetailContainer />
+        <ProductDetailContainer selectedProductID={props.route.params?.productID} />
       </View>
     </View>
   );

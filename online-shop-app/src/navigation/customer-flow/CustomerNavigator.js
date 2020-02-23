@@ -10,7 +10,7 @@ const CustomerNavigator = (props) => {
       <CustomerStackNavigator.Screen name="ProductList" component={ProductListScreen}
         options = {{headerTitle: "Product List"}} 
       />
-      <CustomerStackNavigator.Screen name="ProductDetail" component={ProductDetailScreen}
+      <CustomerStackNavigator.Screen name="ProductDetail" component={ProductDetailScreen} 
         options={{ headerTitle: "Product Details" }}
       />
     </CustomerStackNavigator.Navigator>

@@ -35,7 +35,7 @@ const ProductTile = (props) => {
         padding: 20,
         // justifyContent: 'center',
       }}
-      onPress={handleProductTileClicked.bind(this, name)}
+      onPress={handleProductTileClicked.bind(this, id)}
     >
       <Image
         style={styles.image}

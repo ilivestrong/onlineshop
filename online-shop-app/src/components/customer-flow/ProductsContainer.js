@@ -9,7 +9,9 @@ const ProductsContainer = (props) => {
   const navigation = useNavigation();
 
   const handleProductTileClick = (productID) => {
-    navigation.navigate("ProductDetail");
+    navigation.navigate("ProductDetail", {
+      productID,
+    });
   }
 
   const renderProduct = ({ item }) => {
