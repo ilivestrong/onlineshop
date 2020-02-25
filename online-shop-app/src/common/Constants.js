@@ -5,5 +5,11 @@ export const Constants = {
   },
   common: {
     defaultCurrencySymbol: "฿",
+  },
+  labels: {
+    button: {
+      addToCart: "Add To Cart",
+      buyNow: "Buy Now",
+    }
   }
 }
