@@ -5,7 +5,7 @@ import { View, StyleSheet, Text, Button, Image } from "react-native";
 import { ProductDetail } from "./ProductDetail";
 
 const ProductDetailContainer = (props) => {
-  console.log(props.selectedProductID);
+  //console.log(props.selectedProductID);
 
   return (
     <View style={styles.container}>

@@ -17,8 +17,6 @@ const dummyImageSource = require("../../../../assets/DummyProduct.jpg")
 const ProductDetail = (props) => {
   return (
     <View style={styles.topContainer}>
-      <Text>Product Detail Component</Text>
-
       <View style={styles.section1Container}>
 
         <View style={styles.imageMetaContainer}>
@@ -54,10 +52,12 @@ const ProductDetail = (props) => {
             <ProductRating />
           </View>
 
-          <View style={styles.customerReviewsContainer}>
-            <CustomerReviewFilter />
-            <CustomerReviews />
-          </View>
+          {
+            <View style={styles.customerReviewsContainer}>
+              <CustomerReviewFilter />
+              <CustomerReviews />
+            </View>
+          }
         </ScrollView>
 
       </View>
@@ -107,8 +107,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
     flexDirection: "row",
+    alignItems: "flex-end",
     justifyContent: "flex-end",
-    backgroundColor: "white"
+    marginLeft: 5,
+    // backgroundColor: "white"
   },
   productDescriptionContainer: {
     flex: 1,
@@ -122,7 +124,7 @@ const styles = StyleSheet.create({
   customerReviewsContainer: {
     flex: 1,
     // backgroundColor: 'purple',
-    marginTop: 15
+    marginTop: 30,
   }
 });
 

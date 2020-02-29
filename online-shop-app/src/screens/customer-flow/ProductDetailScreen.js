@@ -6,8 +6,6 @@ import { CustomerFlowComponents, UserInfo } from "../../components";
 const ProductDetailScreen = (props) => {
   const { ProductDetailContainer } = CustomerFlowComponents;
 
-  console.log(props);
-
   return (
     <View style={styles.container}>
       <UserInfo />
@@ -30,8 +28,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 50,
     flex: 19,
-    borderWidth: 1,
-    borderColor: "gray"
+    // borderTopWidth: 2,
+    borderTopColor: "gray"
   }
 })
 

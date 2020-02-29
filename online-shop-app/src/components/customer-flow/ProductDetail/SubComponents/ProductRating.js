@@ -8,7 +8,7 @@ const ProductRating = (props) => {
       <Text style={styles.header}>Buyer's Rating </Text>
       <Rating
         type='heart'
-        imageSize={20}
+        imageSize={30}
         readonly
         startingValue={4}
         style={{ paddingVertical: 10 }}
@@ -21,12 +21,11 @@ const ProductRating = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row",
     justifyContent: 'center',
-    alignItems: "center"
+    marginTop: 20,
   },
   header: {
-    fontSize: 14,
+    fontSize: 20,
     color: "gray",
     fontWeight: "bold",
   },
