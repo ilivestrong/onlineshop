@@ -1,0 +1,1 @@
+export {default as CustomerStackNavigator} from "./CustomerNavigator";
