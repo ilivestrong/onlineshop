@@ -2,10 +2,13 @@ import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
+import { connect } from "react-redux";
+
 import { ProductTile } from "./Products"
 
 const ProductsContainer = (props) => {
-  const { source } = props;
+  const { productsList } = props;
+  console.log(props.dispatch);
   const navigation = useNavigation();
 
   const handleProductTileClick = (productID) => {
@@ -26,10 +29,10 @@ const ProductsContainer = (props) => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={source}
+        data={productsList.products}
         numColumns={2}
         renderItem={renderProduct}
-        keyExtractor={source.id}
+      // keyExtractor={(item, index) => index}
       />
     </View>
   );
@@ -45,4 +48,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProductsContainer;
+const mapStateToProps = (state) => ({
+  productsList: state.products,
+});
+
+export default connect(mapStateToProps)(ProductsContainer);

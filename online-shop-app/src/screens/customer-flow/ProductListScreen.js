@@ -18,7 +18,7 @@ const ProductListScreen = (props) => {
       </View>
 
       <View style={styles.bodyContainer}>
-        <ProductsContainer source={Products} />
+        <ProductsContainer />
       </View>
     </View>
   );
