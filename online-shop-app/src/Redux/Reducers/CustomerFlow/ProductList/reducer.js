@@ -1,16 +1,18 @@
-import { ACTION_TYPE_FETCH_PRODUCT_LIST } from "../../../Sagas/CustomerFlow/ProductList";
+import { ProductListActionTypes } from "../../../Sagas/CustomerFlow/ProductList";
 import { Products } from "../../../../data";
 
 export const productListReducer = (state = Products, action) => {
   switch (action.type) {
-    case ACTION_TYPE_FETCH_PRODUCT_LIST:
-      const categorizedProducts = state.filter((p) => p.categoryID === action.payload.categoryId);
+    case ProductListActionTypes.FETCH_PRODUCT_LIST:
       return {
-        products: [...categorizedProducts],
+        ...state,
+        ...action.payload,
+      };
+    case ProductListActionTypes.FETCH_PRODUCT_SUCCESS:
+      return {
+        data: action.filteredProducts,
       }
     default:
-      return {
-        products: [...state],
-      }
+      return [...state]
   }
 }

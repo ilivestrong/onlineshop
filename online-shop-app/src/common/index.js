@@ -1,2 +1,2 @@
 export { Storage } from "./Storage";
-export { Constants } from "./Constants";
+export { Constants, ProductSearchFilterTypes } from "./Constants";

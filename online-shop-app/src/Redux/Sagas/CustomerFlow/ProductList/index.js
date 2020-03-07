@@ -1,1 +1,3 @@
-export { ACTION_TYPE_FETCH_PRODUCT_LIST, fetchProductList } from "./Action";
+import * as ProductListActionTypes from "./Action";
+
+export { ProductListActionTypes };
