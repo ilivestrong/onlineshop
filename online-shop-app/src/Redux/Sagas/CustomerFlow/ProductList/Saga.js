@@ -1,4 +1,4 @@
-import { put, takeEvery } from "redux-saga/effects";
+import { put, takeEvery, all } from "redux-saga/effects";
 
 import { FETCH_PRODUCT_LIST, FETCH_PRODUCT_SUCCESS } from "./Action";
 import { ProductSearchFilterTypes } from "../../../../common";
@@ -11,7 +11,6 @@ function* handleFetchProductList(action) {
 
   // Right now will rely on products in state, got from reducer.
   const allProducts = Products;
-
   let filteredProducts = [];
 
   if (searchFilter) {
@@ -26,7 +25,8 @@ function* handleFetchProductList(action) {
         break;
     }
   } else {
-    yield put(FETCH_PRODUCT_SUCCESS, allProducts);
+    filteredProducts = allProducts;
+    yield put({type: FETCH_PRODUCT_SUCCESS, filteredProducts});
   }
 }
 

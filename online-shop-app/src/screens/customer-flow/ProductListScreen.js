@@ -13,12 +13,9 @@ const ProductListScreen = (props) => {
   const { Header, ProductsContainer } = CustomerFlowComponents;
   const { productsList = [], fetchProductList } = props;
 
-  React.useEffect(() => { 
+  React.useEffect(() => {
     fetchProductList({
-      filter: {
-        type: ProductSearchFilterTypes.ProductName,
-        value: "White",
-      },
+      filter: null,
     });
   }, [])
 
