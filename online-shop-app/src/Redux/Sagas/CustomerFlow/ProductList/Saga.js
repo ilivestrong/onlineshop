@@ -1,33 +1,30 @@
-import { put, takeEvery, select } from "redux-saga/effects";
+import { put, takeEvery } from "redux-saga/effects";
 
-import { FETCH_PRODUCT_LIST, FETCH_PRODUCT_LIST_BY_NAME, FETCH_PRODUCT_SUCCESS } from "./Action";
-
+import { FETCH_PRODUCT_LIST, FETCH_PRODUCT_SUCCESS } from "./Action";
 import { ProductSearchFilterTypes } from "../../../../common";
+import { Products } from "../../../../data/dummyProducts";
 
 function* handleFetchProductList(action) {
-
-  console.log(10000000)
   const searchFilter = action.payload.filter;
 
   // TODO: Make call() here for the future API to search for products
 
   // Right now will rely on products in state, got from reducer.
-  const allProducts = yield select((state) => state.products);
+  const allProducts = Products;
 
-  let filteredProducts = null;
+  let filteredProducts = [];
 
   if (searchFilter) {
     switch (searchFilter.type) {
       case ProductSearchFilterTypes.ProductName:
         filteredProducts = allProducts && allProducts.filter(p => p.name.includes(searchFilter.value));
-        yield put(FETCH_PRODUCT_SUCCESS, filteredProducts);
+        yield put({ type: FETCH_PRODUCT_SUCCESS, filteredProducts });
         break;
       case ProductSearchFilterTypes.CategoryID:
         filteredProducts = allProducts && allProducts.filter(p => p.CategoryID === searchFilter.value);
-        yield put(FETCH_PRODUCT_SUCCESS, filteredProducts);
+        yield put({ type: FETCH_PRODUCT_SUCCESS, filteredProducts });
         break;
     }
-
   } else {
     yield put(FETCH_PRODUCT_SUCCESS, allProducts);
   }
@@ -35,6 +32,5 @@ function* handleFetchProductList(action) {
 
 export default function* productListSaga() {
   yield takeEvery(FETCH_PRODUCT_LIST, handleFetchProductList);
-  yield takeEvery(FETCH_PRODUCT_LIST_BY_NAME, handleFetchProductListByName)
 }
 

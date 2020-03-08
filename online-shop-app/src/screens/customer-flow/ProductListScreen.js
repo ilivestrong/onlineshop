@@ -1,15 +1,26 @@
 import React from "react";
 import { Button, View, Text, FlatList, StyleSheet } from "react-native";
-
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import { CustomerFlowComponents, UserInfo } from "../../components";
 import { ProductDetailContainer } from "../../components/customer-flow";
 
+import { ProductListActionTypes } from "../../Redux/Sagas/CustomerFlow/ProductList";
+import { ProductSearchFilterTypes } from "../../common/Constants";
+
 const ProductListScreen = (props) => {
   const { Header, ProductsContainer } = CustomerFlowComponents;
-  const { productsList } = props;
+  const { productsList = [], fetchProductList } = props;
 
+  React.useEffect(() => { 
+    fetchProductList({
+      filter: {
+        type: ProductSearchFilterTypes.ProductName,
+        value: "White",
+      },
+    });
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -53,4 +64,10 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps)(ProductListScreen);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchProductList: ProductListActionTypes.fetchProductList
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductListScreen);

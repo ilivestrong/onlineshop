@@ -1,18 +1,18 @@
 import { ProductListActionTypes } from "../../../Sagas/CustomerFlow/ProductList";
 import { Products } from "../../../../data";
 
-export const productListReducer = (state = Products, action) => {
+let initialState = {
+
+}
+export const productListReducer = (state = initialState , action) => {
   switch (action.type) {
     case ProductListActionTypes.FETCH_PRODUCT_LIST:
       return {
-        ...state,
         ...action.payload,
       };
     case ProductListActionTypes.FETCH_PRODUCT_SUCCESS:
-      return {
-        data: action.filteredProducts,
-      }
+      return [...action.filteredProducts];
     default:
-      return [...state]
+      return state;
   }
 }

@@ -6,7 +6,7 @@ import { ProductTile } from "./Products"
 
 const ProductsContainer = (props) => {
   const {source: productsList } = props;
-  console.log(productsList);
+  //console.log(productsList);
   const navigation = useNavigation();
 
   const handleProductTileClick = (productID) => {
