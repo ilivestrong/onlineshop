@@ -46,11 +46,11 @@ const ProductDetail = (props) => {
       <View style={styles.section2Container}>
         <ScrollView>
           <View style={styles.productDescriptionContainer}>
-            <ProductDescription source = {product} />
+            <ProductDescription source={product} />
           </View>
 
           <View style={styles.productRatingContainer}>
-            <ProductRating />
+            <ProductRating source={product} />
           </View>
 
           {

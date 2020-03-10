@@ -1,19 +1,13 @@
 import React from "react";
 import { View, StyleSheet, Text, Button } from "react-native";
-import { Rating } from "react-native-ratings";
+import { Rating, AirbnbRating } from "react-native-ratings";
 
 const ProductRating = (props) => {
+  const product = props.source;
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Buyer's Rating </Text>
-      <Rating
-        type='heart'
-        imageSize={30}
-        readonly
-        startingValue={4}
-        style={{ paddingVertical: 10 }}
-      />
-
+      <AirbnbRating defaultRating={product.rating} />
     </View>
   );
 }
