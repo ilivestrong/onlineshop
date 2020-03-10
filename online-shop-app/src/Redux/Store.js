@@ -5,6 +5,7 @@ import reducers from "./Reducers";
 import { rootSaga } from "./Sagas"
 
 const sagaMiddleware = createSagaMiddleware();
+
 const store = createStore(reducers, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(rootSaga);
 

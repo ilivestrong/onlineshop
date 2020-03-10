@@ -2,15 +2,12 @@ import React from "react";
 import { View, StyleSheet, TextInput, Button } from "react-native";
 
 const SearchByName = (props) => {
-  const { onProductNameChange, onProductSearchByName } = props;
+  const { onProductSearchByName } = props;
 
   const [productName, setProductName] = React.useState("");
+  
   const handleProductNameChange = (changedName) => {
     setProductName(changedName);
-
-    if (onProductNameChange) {
-      props.onProductNameChange(productName);
-    }
   }
 
   const handleProductSearchByName = () => {

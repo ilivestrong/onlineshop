@@ -5,6 +5,7 @@ import { ProductSearchFilterTypes } from "../../../../common";
 import { Products } from "../../../../data/dummyProducts";
 
 function* handleFetchProductList(action) {
+  console.log(action);
   const searchFilter = action.payload.filter;
 
   // TODO: Make call() here for the future API to search for products
@@ -16,7 +17,7 @@ function* handleFetchProductList(action) {
   if (searchFilter) {
     switch (searchFilter.type) {
       case ProductSearchFilterTypes.ProductName:
-        filteredProducts = allProducts && allProducts.filter(p => p.name.includes(searchFilter.value));
+        filteredProducts = allProducts && allProducts.filter(p => p.name.toLowerCase().includes(searchFilter.value.toLowerCase()));
         yield put({ type: FETCH_PRODUCT_SUCCESS, filteredProducts });
         break;
       case ProductSearchFilterTypes.CategoryID:

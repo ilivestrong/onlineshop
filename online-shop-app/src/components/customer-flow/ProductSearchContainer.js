@@ -1,17 +1,30 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import { ProductListActionTypes } from "../../Redux/Sagas/CustomerFlow/ProductList";
 
 import { SearchByName } from "./ProductSearch";
+import { ProductSearchFilterTypes } from "../../common";
 
-const handleProductSearchByName = (productName) => {
-  
-}
 
 const ProductSearchContainer = (props) => {
+  const handleProductSearchByName = (productName) => {
+    console.log(3, props);
+    const { filterProducts } = props;
+    filterProducts({
+      filter: {
+        type: ProductSearchFilterTypes.ProductName,
+        value: productName,
+      }
+    })
+  }
+
   return (
     <View style={styles.container}>
       <SearchByName
-        onProductNameChange={(productName) => handleProductSearchByName(productName)} />
+        onProductSearchByName={(productName) => handleProductSearchByName(productName)} />
     </View>
   );
 }
@@ -25,4 +38,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProductSearchContainer;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    filterProducts: ProductListActionTypes.fetchProductList,
+  }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(ProductSearchContainer);
