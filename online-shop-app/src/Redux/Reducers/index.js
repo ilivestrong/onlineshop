@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
-import { productListReducer } from "./CustomerFlow";
+import { productListReducer, productDetailReducer } from "./CustomerFlow";
 
 export default combineReducers({
   products: productListReducer,
+  productDetail: productDetailReducer,
 });

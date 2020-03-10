@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -11,7 +12,6 @@ import { ProductSearchFilterTypes } from "../../common";
 
 const ProductSearchContainer = (props) => {
   const handleProductSearchByName = (productName) => {
-    console.log(3, props);
     const { filterProducts } = props;
     filterProducts({
       filter: {
@@ -25,6 +25,7 @@ const ProductSearchContainer = (props) => {
     <View style={styles.container}>
       <SearchByName
         onProductSearchByName={(productName) => handleProductSearchByName(productName)} />
+     
     </View>
   );
 }

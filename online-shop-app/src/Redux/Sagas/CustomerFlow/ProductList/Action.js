@@ -5,4 +5,3 @@ export const fetchProductList = (payload) => ({
   type: FETCH_PRODUCT_LIST,
   payload,
 });
-

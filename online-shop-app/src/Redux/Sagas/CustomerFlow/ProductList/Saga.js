@@ -5,7 +5,6 @@ import { ProductSearchFilterTypes } from "../../../../common";
 import { Products } from "../../../../data/dummyProducts";
 
 function* handleFetchProductList(action) {
-  console.log(action);
   const searchFilter = action.payload.filter;
 
   // TODO: Make call() here for the future API to search for products

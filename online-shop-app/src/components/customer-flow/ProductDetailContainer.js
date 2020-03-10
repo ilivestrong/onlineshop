@@ -1,15 +1,24 @@
 import React from "react";
 import { View, StyleSheet, Text, Button, Image } from "react-native";
-//import { useNavigation } from "@react-navigation/native";
+
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
 import { ProductDetail } from "./ProductDetail";
+import { getProductDetail } from "../../Redux/Sagas/CustomerFlow/ProductDetail";
 
 const ProductDetailContainer = (props) => {
-  //console.log(props.selectedProductID);
+  const { selectedProductID, getProductDetail, productDetail } = props;
+  React.useEffect(() => {
+    getProductDetail({
+      selectedProductID,
+    });
+
+  }, []);
 
   return (
     <View style={styles.container}>
-      <ProductDetail />
+      <ProductDetail source={productDetail} />
     </View>
   );
 }
@@ -20,4 +29,16 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProductDetailContainer;
+const mapStateToProps = (state) => {
+  return {
+    productDetail: state.productDetail,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    getProductDetail,
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailContainer);
