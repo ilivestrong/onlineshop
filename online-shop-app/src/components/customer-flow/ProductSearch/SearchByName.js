@@ -1,16 +1,14 @@
 import React from "react";
 import { View, StyleSheet, TextInput, Button } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const SearchByName = (props) => {
-  const { onProductNameChange, onProductSearchByName } = props;
+  const { onProductSearchByName } = props;
 
   const [productName, setProductName] = React.useState("");
+
   const handleProductNameChange = (changedName) => {
     setProductName(changedName);
-
-    if (onProductNameChange) {
-      props.onProductNameChange(productName);
-    }
   }
 
   const handleProductSearchByName = () => {
@@ -29,6 +27,9 @@ const SearchByName = (props) => {
         value={productName}
         onChangeText={handleProductNameChange}
       />
+      {/*<View style={{ flex: 1, backgroundColor: 'red' }}>
+        <MaterialIcons size={32} color="green" />
+        </View>*/}
       <Button
         title="Search"
         onPress={handleProductSearchByName}

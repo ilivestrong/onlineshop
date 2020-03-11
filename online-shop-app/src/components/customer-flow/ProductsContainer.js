@@ -5,12 +5,13 @@ import { useNavigation } from "@react-navigation/native";
 import { ProductTile } from "./Products"
 
 const ProductsContainer = (props) => {
-  const { source } = props;
+  const {source: productsList } = props;
+  //console.log(productsList);
   const navigation = useNavigation();
 
-  const handleProductTileClick = (productID) => {
+  const handleProductTileClick = (selectedProductID) => {
     navigation.navigate("ProductDetail", {
-      productID,
+      selectedProductID,
     });
   }
 
@@ -26,10 +27,10 @@ const ProductsContainer = (props) => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={source}
+        data={productsList}
         numColumns={2}
         renderItem={renderProduct}
-        keyExtractor={source.id}
+      // keyExtractor={(item, index) => index}
       />
     </View>
   );
@@ -44,5 +45,6 @@ const styles = StyleSheet.create({
     margin: 5,
   }
 });
+
 
 export default ProductsContainer;

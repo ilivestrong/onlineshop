@@ -11,7 +11,7 @@ const ProductDetailScreen = (props) => {
       <UserInfo />
 
       <View style={styles.bodyContainer}>
-        <ProductDetailContainer selectedProductID={props.route.params?.productID} />
+        <ProductDetailContainer selectedProductID={props.route.params.selectedProductID} />
       </View>
     </View>
   );

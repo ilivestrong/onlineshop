@@ -13,3 +13,15 @@ export const Constants = {
     }
   }
 }
+
+export const ProductSearchFilterTypes = {
+  ProductName: "ProductName",
+  CategoryID: "CategoryID",
+  Price: {
+    Between: "Between",
+    LessThan: "LessThan",
+    GreaterThan: "GreaterThan",
+  },
+  Available: "Available",
+  Popular: "Popular",
+}

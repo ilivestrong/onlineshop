@@ -15,6 +15,7 @@ import { Constants } from "../../../common"
 const dummyImageSource = require("../../../../assets/DummyProduct.jpg")
 
 const ProductDetail = (props) => {
+  const product = props.source;
   return (
     <View style={styles.topContainer}>
       <View style={styles.section1Container}>
@@ -45,11 +46,11 @@ const ProductDetail = (props) => {
       <View style={styles.section2Container}>
         <ScrollView>
           <View style={styles.productDescriptionContainer}>
-            <ProductDescription />
+            <ProductDescription source={product} />
           </View>
 
           <View style={styles.productRatingContainer}>
-            <ProductRating />
+            <ProductRating source={product} />
           </View>
 
           {
@@ -109,22 +110,25 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-end",
     justifyContent: "flex-end",
-    marginLeft: 5,
+    marginRight: 15,
     // backgroundColor: "white"
   },
   productDescriptionContainer: {
     flex: 1,
+    margin: 15,
     // backgroundColor: 'gray'
   },
   productRatingContainer: {
     flex: 1,
     // backgroundColor: 'pink',
-    marginTop: 15,
+    // marginTop: 15,
+    margin: 15,
   },
   customerReviewsContainer: {
     flex: 1,
     // backgroundColor: 'purple',
-    marginTop: 30,
+    // marginTop: 30,
+    margin: 15,
   }
 });
 
